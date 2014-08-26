@@ -6,7 +6,8 @@ var store = (function() {
 		{
 			remote: {
 				set: function(key, value, callback){},
-				get: function(key, callback){}
+				get: function(key, callback){},
+				remove: function(key, callback){}
 			}
 		});
 
@@ -14,7 +15,7 @@ var store = (function() {
 	store.set = function(key, value) {
 		rpc.set(key, value, function(response){
 			//TODO handle succes set callback
-			alert(response.result);
+			alert(response);
 		}, function(errorObj){
 			console.error(errorObj);
 		});
@@ -23,10 +24,19 @@ var store = (function() {
 	store.get = function(key) {
 		rpc.get(key, function(response){
 			//TODO handle succes get callback
-			alert(response.result);	
+			alert(response);	
 		}, function(errorObj){
 			console.error(errorObj);	
 		});
+	};
+	
+	store.remove = function(key) {
+		rpc.remove(key, function(response){
+			//TODO handle succes get callback
+			alert(response);	
+		}, function(errorObj){
+			console.error(errorObj);	
+		});	
 	};
 	
 	return store;

@@ -15,14 +15,18 @@
                     local: {
                         set: function(key, value, callback){
                             store.set(key, value);
-                            return { 
-                               result: key + "  " + value
-                            };
+                            return "set succes";
                         },
                         get: function(key, callback){
-                            return {
-                                result: store.get(key)    
-                            };
+                            if (store.get(key) == null) {
+                                return false;
+                            }else{
+                                return store.get(key);
+                            }
+                        }, 
+                        remove: function(key){
+                            store.remove(key);
+                            return "remove succes"
                         }
                     }
                 });
