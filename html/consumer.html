@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="/js/easyXDM-2.4.19.3/easyXDM.debug.js"></script>
+        <script type="text/javascript">
+            easyXDM.DomHelper.requiresJSON("/js/easyXDM-2.4.19.3/json2.js");
+        </script>
+        <script type="text/javascript" src="/js/CDStore.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            (function(){
+                store.set('test', 'hello world');
+                store.get('test');
+            })();
+        </script>
+	</body>
+</html>
