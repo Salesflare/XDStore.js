@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <script type="text/javascript" src="/js/easyXDM-2.4.19.3/easyXDM.debug.js"></script>
+        <script type="text/javascript" src="/js/easyXDM-2.4.19.3/easyXDM.min.js"></script>
         <script type="text/javascript">
             easyXDM.DomHelper.requiresJSON("/js/easyXDM-2.4.19.3/json2.js");
         </script>
@@ -10,10 +10,16 @@
     <body>
         <script type="text/javascript">
             (function(){
-                store.set('test', 'hello world'); 
+                store.set('test', 'hello world', function(response){
+                    store.get('test');
+                }); 
                 store.get('test');
                 //store.remove('test');
-                store.get('test');
+                store.set('user', { name: 'marcus', likes: 'javascript' }, function(response){
+                    store.get('user', function(response){
+                        console.log(response.name);    
+                    });    
+                })              
             })();
         </script>
 	</body>

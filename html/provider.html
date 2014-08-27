@@ -15,7 +15,7 @@
                     local: {
                         set: function(key, value, callback){
                             store.set(key, value);
-                            return "set succes";
+                            return true;
                         },
                         get: function(key, callback){
                             if (store.get(key) == null) {
@@ -26,7 +26,7 @@
                         }, 
                         remove: function(key){
                             store.remove(key);
-                            return "remove succes"
+                            return true;
                         }
                     }
                 });

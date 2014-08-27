@@ -12,28 +12,35 @@ var store = (function() {
 		});
 
 
-	store.set = function(key, value) {
+	store.set = function(key, value, callback) {
 		rpc.set(key, value, function(response){
-			//TODO handle succes set callback
-			alert(response);
+			console.log('set' + response);
+			if(callback){
+				callback(response);	
+			}	
 		}, function(errorObj){
 			console.error(errorObj);
 		});
 	};
 	
-	store.get = function(key) {
+	store.get = function(key, callback) {
 		rpc.get(key, function(response){
-			//TODO handle succes get callback
-			alert(response);	
+			console.log('get ' + response);	
+			console.log(response);
+			if(callback){
+				callback(response);	
+			}
 		}, function(errorObj){
 			console.error(errorObj);	
 		});
 	};
 	
-	store.remove = function(key) {
+	store.remove = function(key, callback) {
 		rpc.remove(key, function(response){
-			//TODO handle succes get callback
-			alert(response);	
+			console.log('removed ' + response);	
+			if(callback){
+				callback(response);	
+			}			
 		}, function(errorObj){
 			console.error(errorObj);	
 		});	
