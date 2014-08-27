@@ -1,7 +1,7 @@
 var store = (function() {
 	var store = {};
 	var rpc = new easyXDM.Rpc({
-		remote: "http://127.0.0.1:60785/html/provider.html" // the path to the provider
+		remote: "http://localhost/html/provider.html" // the path to the provider
 		}, 
 		{
 			remote: {
