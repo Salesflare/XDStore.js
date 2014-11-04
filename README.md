@@ -1,7 +1,7 @@
 RemoteLocalStorage.js
 =====================
 
-This libraray alows you to do cross domain local storage.
+This library alows you to do cross domain local storage.
 
 It uses [easyXDM] to communicate between domains and [Store.js] to handle the local storage on the remote domain.
 All the basic interactions are implemented except `store.forEach()` but you can get around that with `store.getAll()`.
