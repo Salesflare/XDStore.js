@@ -1,4 +1,4 @@
-RemoteLocalStorage.js
+XDStore.js
 =====================
 
 This library alows you to do cross domain local storage.
