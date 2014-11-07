@@ -1,7 +1,7 @@
-var store = (function() {
+function XDStore(url) {
 	var store = {};
 	var rpc = new easyXDM.Rpc({
-		remote: "http://localhost/html/provider.html" // the path to the provider
+		remote: url // the path to the provider
 		}, 
 		{
 			remote: {
@@ -16,10 +16,8 @@ var store = (function() {
 	//	Returns true if succes, if error it returns the error object
 	store.set = function(key, value, callback) {
 		rpc.set(key, value, function(response){
-			console.log('set ' + response);
 			if(callback) callback(response);	
 		}, function(errorObj){
-			console.error(errorObj);
 			if(callback) callback(errorObj);
 		});
 	};
@@ -30,11 +28,8 @@ var store = (function() {
 	 */
 	store.get = function(key, callback) {
 		rpc.get(key, function(response){
-			console.log('get ' + response);	
-			console.log(response);
 			if(callback) callback(response);
 		}, function(errorObj){
-			console.error(errorObj);	
 			if(callback) callback(errorObj);
 		});
 	};
@@ -42,23 +37,19 @@ var store = (function() {
 	// Returns true if succes
 	store.remove = function(key, callback) {
 		rpc.remove(key, function(response){
-			console.log('removed ' + response);	
 			if(callback) callback(response);			
 		}, function(errorObj){
-			console.error(errorObj);
 			if(callback) callback(errorObj);
 		});	
 	};
 	
 	store.getAll = function( callback) {
 		rpc.getAll(function(response){
-			console.log('getAll ' + response);	
 			if(callback) callback(response);			
 		}, function(errorObj){
-			console.error(errorObj);
 			if(callback) callback(errorObj);
 		});	
 	};
 	
 	return store;
-}());
+}

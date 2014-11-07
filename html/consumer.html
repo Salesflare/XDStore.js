@@ -12,10 +12,15 @@
         <script type="text/javascript">
             //This is example test code
             (function(){
+				var store = new XDStore("http://localhost/html/provider.html");
                 store.set('test', 'hello world', function(response){
-                    store.get('test');
+                    store.get('test', function(response) {
+						console.log(response);
+					});
                 }); 
-                store.get('test');
+                store.get('test', function(response) {
+					console.log(response);
+				});
                 //store.remove('test');
                 store.set('user', { name: 'marcus', likes: 'javascript' }, function(response){
                     store.get('user', function(response){

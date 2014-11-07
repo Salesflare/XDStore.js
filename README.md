@@ -16,10 +16,13 @@ On the **consumer** side add these to your html header:
     easyXDM.DomHelper.requiresJSON("/js/easyXDM-2.4.19.3/json2.js");
 </script>
 <script type="text/javascript" src="/js/XDStore.js"></script>
+<script type="text/javascript">
+var store = new XDStore("http://localhost/html/provider.html"); //remote path of the provider page
+...
+</script>
 ````
 The json is used to support old browsers.
 In javascript you can use the same commands from [Store.js]. Only they now have callbacks.
-You only have to change the `remote path` in [XDStore.js] to point to your provider page.
 
 The **provider** side looks like this:
 
@@ -47,5 +50,5 @@ That's it.
 
 [easyXDM]:https://github.com/oyvindkinsey/easyXDM
 [Store.js]:https://github.com/marcuswestin/store.js
-[XDStore.js]:https://raw.githubusercontent.com/AdriVanHoudt/RemoteLocalStorage.js/master/js/XDStore.js
-[html]:https://github.com/AdriVanHoudt/RemoteLocalStorage.js/tree/master/html
+[XDStore.js]:https://raw.githubusercontent.com/Salesflare/XDStore.js/master/js/XDStore.js
+[html]:https://github.com/Salesflare/XDStore.js/tree/master/html
